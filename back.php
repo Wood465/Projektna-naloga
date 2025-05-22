@@ -17,23 +17,25 @@
         .button2 {
             text-align: center;
         }
-        button {
+        a {
+            display: inline-block;
             background-color: #007BFF;
             color: white;
             padding: 10px 20px;
-            border: none;
             border-radius: 5px;
-            cursor: pointer;
+            text-decoration: none;
             font-size: 16px;
+            font-weight: bold;
+            text-align: center;
         }
-        button:hover {
+        a:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="button2">
-        <button onclick="window.location.href='main.php'">Nazaj na Glavno Stran</button>
+        <a href="main.php">Nazaj na Glavno Stran</a>
     </div>
 </body>
 </html>

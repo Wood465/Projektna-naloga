@@ -47,8 +47,10 @@ include_once 'prijava.php';
             border: none;
             border-radius: 4px;
         }
-        .domov {
-            cursor: pointer;
+        .domov a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
         }
         .container {
             display: flex;
@@ -79,7 +81,6 @@ include_once 'prijava.php';
             height: 200px;
             object-fit: cover;
             border-radius: 4px;
-            cursor: pointer;
         }
         .gumb {
             background-color: #007BFF;
@@ -89,6 +90,9 @@ include_once 'prijava.php';
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
+            text-align: center;
+            display: block;
+            text-decoration: none;
         }
         .gumb:hover {
             background-color: #0056b3;
@@ -97,9 +101,11 @@ include_once 'prijava.php';
 </head>
 <body>
     <div class="navbar">
-        <div class="domov" onclick="location.reload()">🏠</div>
+        <div class="domov">
+            <a href="#">🏠</a>
+        </div>
         <div class="menu">
-            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Menu</a>
+            <a href="#">Menu</a>
             <a href="onas.html">O Nas</a>
         </div>
         <div class="iskanje">
@@ -116,7 +122,7 @@ include_once 'prijava.php';
                     <img src="smuci.png" alt="Smuči">
                 </a>
             </div>
-            <button class="gumb" onclick="location.href='smuci.php'">NAKUP</button>
+            <a class="gumb" href="smuci.php">NAKUP</a>
         </div>
         
         <!-- Kolo -->
@@ -127,7 +133,7 @@ include_once 'prijava.php';
                     <img src="gorsko-kolo.jpeg" alt="Kolo">
                 </a>
             </div>
-            <button class="gumb" onclick="location.href='kolo.php'">NAKUP</button>
+            <a class="gumb" href="kolo.php">NAKUP</a>
         </div>
 
         <!-- Avto -->
@@ -138,7 +144,7 @@ include_once 'prijava.php';
                     <img src="avto.png" alt="Avto">
                 </a>
             </div>
-            <button class="gumb" onclick="location.href='avto.php'">NAKUP</button>
+            <a class="gumb" href="avto.php">NAKUP</a>
         </div>
 
         <!-- Prenosniki -->
@@ -149,7 +155,7 @@ include_once 'prijava.php';
                     <img src="prenosnik.jpg" alt="Prenosnik">
                 </a>
             </div>
-            <button class="gumb" onclick="location.href='prenosnik.php'">NAKUP</button>
+            <a class="gumb" href="prenosnik.php">NAKUP</a>
         </div>
     </div>
 </body>

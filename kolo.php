@@ -68,7 +68,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        .vnos gumb {
+        .gumb {
             background-color: rgb(184, 59, 59);
             color: white;
             padding: 10px 20px;
@@ -76,8 +76,11 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
-        .vnos gumb:hover {
+        .gumb:hover {
             background-color: darkred;
         }
         .cena {
@@ -91,7 +94,7 @@
             right: 10px;
             float: right;
         }
-        .nazaj button {
+        .nazaj a {
             background-color: orange;
             color: white;
             padding: 10px 20px;
@@ -100,25 +103,18 @@
             border-radius: 5px;
             cursor: pointer;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            text-align: center;
         }
-        .nazaj button:hover {
+        .nazaj a:hover {
             background-color: rgb(255, 102, 0);
         }
     </style>
-    <script>
-        function izracunajCeno() {
-            const dnevnaCena = 10; // Cena na dan za kolo
-            const kolicina = parseInt(document.getElementById("kolicina").value) || 0;
-            const dnevi = parseInt(document.getElementById("dnevi").value) || 0;
-            const skupaj = dnevnaCena * kolicina * dnevi;
-            document.getElementById("cena").innerText = `Cena: €${skupaj}`;
-        }
-    </script>
-    <div class="nazaj">
-        <button onclick="window.location.href='glavna_stran.php'">Nazaj na Glavno Stran</button>
-    </div>
 </head>
 <body>
+    <div class="nazaj">
+        <a href="glavna_stran.php">Nazaj na Glavno Stran</a>
+    </div>
     <div class="container">
         <!-- Sekcija za sliko -->
         <div class="slika">
@@ -148,20 +144,22 @@
         <!-- Obrazec za naročilo -->
         <div class="obrazec">
             <h2>Naročilo</h2>
-            <div class="vnos">
-                <label for="kolicina">Količina (število koles):</label>
-                <input type="number" id="kolicina" name="kolicina" min="1" onchange="izracunajCeno()">
-            </div>
-            <div class="vnos">
-                <label for="dnevi">Število dni:</label>
-                <input type="number" id="dnevi" name="dnevi" min="1" onchange="izracunajCeno()">
-            </div>
-            <div class="vnos">
-                <p id="cena" class="cena">Cena: €0</p>
-            </div>
-            <div class="vnos">
-                <button type="button" onclick="alert('Uspešno naročeno!')">Oddaj naročilo</button>
-            </div>
+            <form action="narocilo.php" method="POST">
+                <div class="vnos">
+                    <label for="kolicina">Količina (število koles):</label>
+                    <input type="number" id="kolicina" name="kolicina" min="1" required>
+                </div>
+                <div class="vnos">
+                    <label for="dnevi">Število dni:</label>
+                    <input type="number" id="dnevi" name="dnevi" min="1" required>
+                </div>
+                <div class="vnos">
+                    <p class="cena">Cena: </p>
+                </div>
+                <div class="vnos">
+                    <button type="submit" class="gumb">Oddaj naročilo</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>

@@ -68,7 +68,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        .skupina-forma button {
+        .gumb {
             background-color: rgb(184, 59, 59);
             color: white;
             padding: 10px 20px;
@@ -76,8 +76,9 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            text-decoration: none;
         }
-        .skupina-forma button:hover {
+        .gumb:hover {
             background-color: darkred;
         }
         .cena {
@@ -91,7 +92,7 @@
             right: 10px;
             float: right;
         }
-        .gumb-nazaj button {
+        .gumb-nazaj a {
             background-color: orange;
             color: white;
             padding: 10px 20px;
@@ -99,26 +100,19 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            text-decoration: none;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-        .gumb-nazaj button:hover {
+        .gumb-nazaj a:hover {
             background-color: rgb(255, 102, 0);
         }
     </style>
-    <script>
-        function izracunajCeno() {
-            const dnevnaCena = 50; // Cena na dan za avto
-            const kolicina = parseInt(document.getElementById("kolicina").value) || 0;
-            const dnevi = parseInt(document.getElementById("dnevi").value) || 0;
-            const skupaj = dnevnaCena * kolicina * dnevi;
-            document.getElementById("cena").innerText = `Cena: €${skupaj}`;
-        }
-    </script>
-    <div class="gumb-nazaj">
-        <button onclick="window.location.href='glavna_stran.php'">Nazaj na Glavno Stran</button>
-    </div>
 </head>
 <body>
+    <div class="gumb-nazaj">
+        <a href="glavna_stran.php">Nazaj na Glavno Stran</a>
+    </div>
     <div class="container">
         <!-- Slika Del -->
         <div class="slika-del">
@@ -148,20 +142,22 @@
         <!-- Forma Del -->
         <div class="forma-del">
             <h2>Naročilo</h2>
-            <div class="skupina-forma">
-                <label for="kolicina">Količina (število avtomobilov):</label>
-                <input type="number" id="kolicina" name="kolicina" min="1" onchange="izracunajCeno()">
-            </div>
-            <div class="skupina-forma">
-                <label for="dnevi">Število dni:</label>
-                <input type="number" id="dnevi" name="dnevi" min="1" onchange="izracunajCeno()">
-            </div>
-            <div class="skupina-forma">
-                <p id="cena" class="cena">Cena: €0</p>
-            </div>
-            <div class="skupina-forma">
-                <button type="button" onclick="alert('Uspešno naročeno!')">Oddaj naročilo</button>
-            </div>
+            <form action="narocilo_avto.php" method="POST">
+                <div class="skupina-forma">
+                    <label for="kolicina">Količina (število avtomobilov):</label>
+                    <input type="number" id="kolicina" name="kolicina" min="1" required>
+                </div>
+                <div class="skupina-forma">
+                    <label for="dnevi">Število dni:</label>
+                    <input type="number" id="dnevi" name="dnevi" min="1" required>
+                </div>
+                <div class="skupina-forma">
+                    <p class="cena">Cena: </p>
+                </div>
+                <div class="skupina-forma">
+                    <button type="submit" class="gumb">Oddaj naročilo</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
