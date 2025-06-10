@@ -1,0 +1,280 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(99, 93, 93);
+    margin: 0px;
+    padding-bottom: 45px;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.domov, .menu, .iskanje {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+.footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: #333;
+    background-color: #f2f2f2;
+
+}
+
+.user-info {
+    float: right;
+}
+
+
+.container {
+    margin: 20px;
+    text-align: center;
+}
+
+.obrazec {
+    display: inline-block;
+    background: white;
+    padding: 10px;
+    width: 22%;
+    margin: 1%;
+    vertical-align: top;
+    text-align: left;
+}
+
+.izdelek {
+    margin: 10px 0;
+}
+
+.izdelek img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.vsebnik {
+    width: 100%;
+    overflow: auto;
+    background: white;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.slikovni-odsek, .informacijski-odsek, .obrazec-odsek {
+    float: left;
+    size: 20px;
+    width: 32%;
+    margin-right: 2%;
+}
+.oprema-slike{
+    width: 390px;
+    height: 390px;
+}
+
+.obrazec-odsek {
+    margin-right: 0;
+    background-color: #eee;
+    padding: 10px;
+}
+
+.informacijski-odsek h1,
+h1 {
+    color: #212020;
+    margin: 0 0 10px;
+}
+
+.informacijski-odsek p, .content p {
+    color: #333;
+    line-height: 1.5;
+}
+
+.cena {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(184, 59, 59);
+}
+
+.obrazec-skupina {
+    margin-bottom: 15px;
+}
+
+.obrazec-skupina label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.obrazec-skupina input,
+.obrazec-skupina select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.gumb {
+    width: 200px;
+    margin: 10px auto 0 auto;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    border: none;
+    display: block;
+    text-decoration: none;
+}
+
+.gumb:hover {
+    background-color: #0056b3;
+}
+
+.gumb-nazaj {
+    float: right;
+    margin: 10px;
+}
+
+.gumb-nazaj a {
+    background-color: orange;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.gumb-nazaj a:hover {
+    background-color: rgb(255, 102, 0);
+}
+
+.content {
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+    background: white;
+}
+
+.content h2 {
+    color: rgb(184, 59, 59);
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.gumb-vrni {
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.gumb-zelen {
+    background-color: green;
+}
+
+.gumb-rumen {
+    background-color: gold;
+}
+
+.gumb-rdec {
+    background-color: red;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.radio-label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+
+.noga{
+    background-color: #333;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    color: #fff;
+
+}
+.kontainer{
+    display: block;
+    margin: 0 auto;
+    width:1000px;
+}
+
+.prijava {
+    background-color: #ada7a7;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px;
+    border: 1px solid #8d8c8c;
+    border-radius: 8px;
+}
+.povezava {
+    display: block;
+    margin-top: 10px;
+    color: #4285f4;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.povezava:hover {
+    text-decoration: underline;
+}
+.polje {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.registracija {
+    background-color: #ada7a7;
+    width: 300px;
+    margin: 80px auto;
+    padding: 20px;
+    border: 1px solid #8d8c8c;
+    border-radius: 8px;
+}
+.viri{
+    color: white;
+
+}
+.tabelca {
+  width: 100%;            
+  border-collapse: collapse;
+  
+}
+
+.tabelca th,
+.tabelca td {
+  border: 2px solid black;
+  padding: 5px;
+  text-align: left;
+}
