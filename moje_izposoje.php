@@ -35,7 +35,7 @@ echo "<h1>Moje aktivne izposoje</h1>";
 echo "<table border='1' cellpadding='10'>";
 echo "<tr><th>Izdelek</th><th>Količina</th><th>Vrnjeno do</th><th>Dejanje</th></tr>";
 
-while ($row = mysqli_fetch_assoc($result)) {
+while ($row = mysqli_fetch_array($result)) {
 
 $razlika_dni = $row['razlika_dni'];
 

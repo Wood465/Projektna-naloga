@@ -2,10 +2,10 @@
 require_once 'povezava.php'; 
 
 if (isset($_POST['register'])) {
-    $ime = $_POST['ime'];
-    $priimek = $_POST['priimek'];
-    $e_naslov = $_POST['e_naslov'];
-    $geslo = $_POST['geslo'];
+    $ime = mysqli_real_escape_string($link, $_POST['ime']);
+    $priimek = mysqli_real_escape_string($link, $_POST['priimek']);
+    $email = mysqli_real_escape_string($link, $_POST['e_naslov']);
+    $geslo = mysqli_real_escape_string($link, $_POST['geslo']);
     $geslo2 = sha1($geslo); 
 
     
@@ -41,16 +41,16 @@ if (isset($_POST['register'])) {
         <h2>Registrirajte se</h2>
         <form action="#" method="post">
             <p>
-                <input type="text" name="ime" class="polje" placeholder="Vnesi ime">
+                <input type="text" name="ime" class="polje" placeholder="Vnesi ime" required>
             </p>
             <p>
-                <input type="text" name="priimek" class="polje" placeholder="Vnesi priimek">
+                <input type="text" name="priimek" class="polje" placeholder="Vnesi priimek" required>
             </p>
             <p>
-                <input type="text" name="e_naslov" class="polje" placeholder="Vnesi e-naslov">
+                <input type="email" name="e_naslov" class="polje" placeholder="Vnesi e-naslov" required>
             </p>
             <p>
-                <input type="password" name="geslo" class="polje" placeholder="Vnesi geslo">
+                <input type="password" name="geslo" class="polje" placeholder="Vnesi geslo" required>
             </p>
             <p>
                 <input type="submit" name="register" class="gumb" value="Registracija">

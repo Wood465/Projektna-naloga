@@ -17,7 +17,7 @@ include_once 'menu.php';
 </head>
 <body>
   
-    <form method="GET" style="text-align:center; margin: 20px;">
+    <form method="GET" class="centriraj">
     <input type="text" name="iskanje" placeholder="Išči po imenu">
     <select name="tip">
         <option value="">Vsi tipi</option>
@@ -53,7 +53,7 @@ $result = mysqli_query($link, $query);
 
 echo '<div class="container">';
 
-while ($row = mysqli_fetch_assoc($result)) {
+while ($row = mysqli_fetch_array($result)) {
     echo '<div class="obrazec" id="obrazec-' . htmlspecialchars($row['id_oprema']) . '">';
     echo '<h1>' . htmlspecialchars($row['oprema_ime']) . '</h1>';
     echo '<div class="izdelek">';

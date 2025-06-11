@@ -1,6 +1,6 @@
 <?php 
-require_once 'povezava.php'; // Vključi datoteko za povezavo z bazo 
-include_once 'seja.php'; // Upravljanje sej
+require_once 'povezava.php'; 
+include_once 'seja.php'; 
 include_once 'menu.php';
 ?>
 <!DOCTYPE html>

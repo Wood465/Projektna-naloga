@@ -24,7 +24,7 @@ if ( $_SESSION['vloga'] !== 'admin') {
 
 $rez = mysqli_query($link, "SELECT * FROM opreme");
 
-while ($row = mysqli_fetch_assoc($rez)) {
+while ($row = mysqli_fetch_array($rez)) {
     echo "<tr>";
     echo "<td>{$row['id_oprema']}</td>";
     echo "<td>{$row['ime']}</td>";
@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_assoc($rez)) {
     echo "<td>{$row['kolicina']}</td>";
     echo "<td>{$row['cena']}</td>";
     echo "<td>
-            <form method='POST' style='display:inline;'>
+            <form method='POST' class=\"inline\" >
                 <input type='hidden' name='izbrisi_id' value='{$row['id_oprema']}'>
                 <button type='submit' class='gumb gumb-izbrisi'>Izbriši</button>
             </form>

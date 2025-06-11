@@ -26,7 +26,7 @@ if (isset($_POST['id_oprema'])) {
   
     $sql = "SELECT kolicina,cena FROM opreme WHERE id_oprema = $id_oprema";
     $result = mysqli_query($link, $sql);
-    $row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_array($result);
     $skupna_kolicina = $row['kolicina'];
     $osnovnaCena = $row['cena'];
     $cena = $osnovnaCena  * $kolicina * $dnevi;
@@ -38,13 +38,13 @@ if (isset($_POST['id_oprema'])) {
         AND vrnjeno = 0;
     ";
     $res2 = mysqli_query($link, $sql2);
-    $row2 = mysqli_fetch_assoc($res2);
+    $row2 = mysqli_fetch_array($res2);
     $zasedeno = $row2['zasedeno'] ?? 0;
 
     $na_voljo = $skupna_kolicina - $zasedeno;
   header("refresh:3;url=index.php"); 
     if ($kolicina > $na_voljo) {
-        echo "<p style='color:red;'>Na voljo je samo $na_voljo kosov v izbranem terminu.</p>";
+        echo "<p>Na voljo je samo $na_voljo kosov v izbranem terminu.</p>";
         exit;
     }
 
@@ -55,9 +55,9 @@ if (isset($_POST['id_oprema'])) {
     ";
 
     if (mysqli_query($link, $query)) {
-        echo "<p style='color:green;'>Izposoja uspešna! Hvala za vaš nakup.</p>";
+        echo "<p>Izposoja uspešna! Hvala za vaš nakup.</p>";
     } else {
-        echo "<p style='color:red;'>Napaka pri vnosu: " . mysqli_error($link) . "</p>";
+        echo "<p>Napaka pri vnosu: " . mysqli_error($link) . "</p>";
     }
 }
 ?>

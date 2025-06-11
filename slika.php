@@ -7,13 +7,12 @@ if (isset($_GET['id'])) {
     $sql = "SELECT url, tip FROM slike WHERE id_oprema = $id LIMIT 1";
     $result = mysqli_query($link, $sql);
     
-    if ($row = mysqli_fetch_assoc($result)) {
+    if ($row = mysqli_fetch_array($result)) {
         header("Content-Type: " . $row['tip']);
         echo $row['url'];
         exit;
     }
 }
 
-http_response_code(404);
-echo "Slika ni najdena.";
+
 ?>

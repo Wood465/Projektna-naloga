@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
             WHERE id_oprema = $id
             AND vrnjeno = 0
         ");
-        $row2 = mysqli_fetch_assoc($q2);
+        $row2 = mysqli_fetch_array($q2);
         $zasedeno = $row2['zasedeno'] ?? 0;
 
       
@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
             AND vrnjeno = 0 
             AND datum_vrnitve >= '$danes';
         ");
-        $row3 = mysqli_fetch_assoc($q3);
+        $row3 = mysqli_fetch_array($q3);
         $najblizji_vracilo = $row3['najblizji_vracilo'] ?? $danes;
 
 
@@ -109,12 +109,12 @@ if (isset($_GET['id'])) {
                         $kol = intval($_GET['kolicina']);
                         $dn = intval($_GET['dnevi']);
                         $izracunana = $kol * $dn * $osnovnaCena;
-                        echo "<span style='color:green; font-weight: bold;'>{$izracunana} €</span>";
+                        echo "<span >{$izracunana} €</span>";
                     }
                     
                     ?>
 
-                    <button type="submit" name="akcija" value="izracun" class="gumb" style="width:auto; padding:5px 10px; margin-left:10px;">Izračunaj</button><br>
+                    <button type="submit" name="akcija" value="izracun" class="gumb2" >Izračunaj</button><br>
                    
                 </p>
 
