@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['log'] = TRUE;
         $_SESSION['vloga'] = $row['vloga'];
         if ($_SESSION['vloga']=="admin"){
-             header("Location: Admin.php");
+             header("Location: admin.php");
              exit;
         }
         

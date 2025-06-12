@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
             AND datum_vrnitve >= '$danes';
         ");
         $row3 = mysqli_fetch_array($q3);
-        $najblizji_vracilo = $row3['najblizji_vracilo'] ?? $danes;
+        $najblizji_vracilo = $row3['najblizji_vracilo'] ?? "neznano";
 
 
     } else {
