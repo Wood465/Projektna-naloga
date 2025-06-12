@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <div class="navbar">
+    <div class="navigacija">
         <div class="domov">
             <a href="index.php">Dom</a>
         </div>

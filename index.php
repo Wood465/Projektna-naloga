@@ -39,22 +39,18 @@ $query = "SELECT o.id_oprema, o.ime AS oprema_ime, o.opis, o.specifikacija, sl.u
           WHERE 1=1";
 
 if (!empty($iskanje)) {
-    $query .= " AND o.ime LIKE '%" . mysqli_real_escape_string($link, $iskanje) . "%'";
+    $query .= " AND o.ime LIKE '%" . $iskanje . "%'";
 }
 if (!empty($tip)) {
-    $query .= " AND o.tip = '" . mysqli_real_escape_string($link, $tip) . "'";
+    $query .= " AND o.tip = '" .  $tip . "'";
 }
 
-
 $result = mysqli_query($link, $query);
-
-
-
 
 echo '<div class="container">';
 
 while ($row = mysqli_fetch_array($result)) {
-    echo '<div class="obrazec" id="obrazec-' . htmlspecialchars($row['id_oprema']) . '">';
+    echo '<div class="obrazec" >';
     echo '<h1>' . htmlspecialchars($row['oprema_ime']) . '</h1>';
     echo '<div class="izdelek">';
     echo '<a href="oprema.php?id=' . htmlspecialchars($row['id_oprema']) . '">';

@@ -58,6 +58,8 @@ if (isset($_POST['submit'])) {
         <br>
         <a href="registracija.php" class="povezava">Ustvari račun</a>
         <a href="index.php" class="povezava">Nazaj na Glavno Stran</a>
+       
+
 
   </body>
 </html>

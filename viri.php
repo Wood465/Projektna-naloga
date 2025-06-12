@@ -16,7 +16,6 @@ include_once 'menu.php';
             <li><a href="https://www.php.net/manual/en/" target="_blank">PHP</a></li>
             <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools html</a></li>
             <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools css</a></li>
-           
         </ul>
 
         <a href="index.php" class="nazaj">Nazaj na Glavno Stran</a>
