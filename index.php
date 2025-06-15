@@ -21,9 +21,15 @@ include_once 'menu.php';
     <input type="text" name="iskanje" placeholder="Išči po imenu">
     <select name="tip">
         <option value="">Vsi tipi</option>
-        <option value="Športna oprema">Športna oprema</option>
-        <option value="Vozila">Vozila</option>
-        <option value="Elektronika">Elektronika</option>
+      
+        <?php 
+        $query = "SELECT distinct o.tip from opreme o  ";
+        $tipi = mysqli_query($link, $query);
+        while ($row = mysqli_fetch_array($tipi)){ ?>
+                <option value="<?php echo ($row[0]) ?>"><?php echo ($row[0]) ?></option>
+       <?php }?>
+        
+
     </select>
     <input type="submit" value="Filtriraj">
 </form>
@@ -50,18 +56,20 @@ $result = mysqli_query($link, $query);
 echo '<div class="container">';
 
 while ($row = mysqli_fetch_array($result)) {
-    echo '<div class="obrazec" >';
-    echo '<h1>' . htmlspecialchars($row['oprema_ime']) . '</h1>';
-    echo '<div class="izdelek">';
-    echo '<a href="oprema.php?id=' . htmlspecialchars($row['id_oprema']) . '">';
-    echo '<img src="slika.php?id=' . htmlspecialchars($row['id_oprema']) . '" alt="' . htmlspecialchars($row['slika_ime']) . '">';
-    echo '</a>';
-    echo '</div>';
-    echo '<a class="gumb" href="oprema.php?id=' . htmlspecialchars($row['id_oprema']) . '">NAKUP</a>';
-    echo '</div>';
-}
-echo '</div>';
-
+ ?>   
+    <div class="obrazec" >
+    <h1><?php echo htmlspecialchars($row['oprema_ime']) ?></h1>
+    <div class="izdelek">
+    <a href="oprema.php?id=<?php echo htmlspecialchars($row['id_oprema']) ?>">
+    <img src="slika.php?id=<?php echo htmlspecialchars($row['id_oprema']) ?>" alt="<?php echo htmlspecialchars($row['slika_ime'])  ?>">
+    </a>
+    </div>
+     <a class="gumb" href="oprema.php?id=<?php echo htmlspecialchars($row['id_oprema']) ?>">NAKUP</a>
+   </div>
+<?php } 
 ?>
+</div>
+
+
 </body>
 </html>

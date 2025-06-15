@@ -21,31 +21,6 @@ if (!isset($_SESSION['log']) || $_SESSION['vloga'] !== 'admin') {
 <tr><th>ID</th><th>Ime</th><th>Tip</th><th>Količina</th></th><th>Cena</th><th>Dejanje</th></tr>
     <?php
 
-
-$rez = mysqli_query($link, "SELECT * FROM opreme");
-
-
-while ($row = mysqli_fetch_array($rez)) {
-    echo "<tr>";
-    echo "<td>{$row['id_oprema']}</td>";
-    echo "<td>{$row['ime']}</td>";
-    echo "<td>{$row['tip']}</td>";
-    echo "<td>{$row['kolicina']}</td>";
-    echo "<td>{$row['cena']}</td>";
-    echo "<td>
-            <form method='GET'  class='inline'>
-                <input type='hidden' name='uredi' value='{$row['id_oprema']}'>
-                <button type='submit' class='gumb-action inline'>Uredi</button>
-            </form>
-            <form method='POST' class='inline'>
-                <input type='hidden' name='izbrisi_id' value='{$row['id_oprema']}'>
-                <button type='submit' class='gumb-action inline'>Izbriši</button>
-            </form>
-        </td>";
-    echo "</tr>";
-}
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['izbrisi_id'])) {
     $id = intval($_POST['izbrisi_id']);
     mysqli_query($link, "DELETE FROM slike WHERE id_oprema = $id");
@@ -53,6 +28,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['izbrisi_id'])) {
     header("Location: admin.php");
     exit;
 }
+$rez = mysqli_query($link, "SELECT * FROM opreme");
+
+
+while ($row = mysqli_fetch_array($rez)) { ?>
+    <tr>
+    <td><?php echo $row['id_oprema']; ?></td>
+    <td><?php echo $row['ime']; ?></td>
+    <td><?php echo $row['tip']; ?></td>
+    <td><?php echo $row['kolicina']; ?></td>
+    <td><?php echo $row['cena']; ?></td>
+    <td>
+            <form method='GET'  class='inline'>
+                <input type='hidden' name='uredi' value='<?php echo $row['id_oprema'] ;?>'>
+                <button type='submit' class='gumb-action inline'>Uredi</button>
+            </form>
+            <form method='POST' class='inline'>
+                <input type='hidden' name='izbrisi_id' value='<?php echo $row['id_oprema']; ?>'>
+                <button type='submit' class='gumb-action inline'>Izbriši</button>
+            </form>
+        </td>
+    </tr>
+<?php }
+
+
 
 ?>
 </table>
@@ -66,7 +65,7 @@ if (isset($_GET['uredi'])) {
     $row_uredi = mysqli_fetch_array($res_uredi);
     ?>
     <h2>Uredi izdelek</h2>
-    <form action="posodobi_izdelek.php" method="POST">
+    <form action="posodobi_izdelek.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id_oprema" value="<?php echo $row_uredi['id_oprema']; ?>">
         <label>Ime:</label><br><input type="text" name="ime" value="<?php echo $row_uredi['ime']; ?>"><br>
         <label>Tip:</label><br><input type="text" name="tip" value="<?php echo $row_uredi['tip']; ?>"><br>
@@ -74,6 +73,7 @@ if (isset($_GET['uredi'])) {
         <label>Specifikacije:</label><br><textarea name="specifikacija"><?php echo $row_uredi['specifikacija']; ?></textarea><br>
         <label>Količina:</label><br><input type="number" name="kolicina" value="<?php echo $row_uredi['kolicina']; ?>"><br>
         <label>Cena:</label><br><input type="number" name="cena" value="<?php echo $row_uredi['cena']; ?>"><br><br>
+        <label>Slika:</label><br><input type="file" name="slika" accept="image/*" ><br><br>
         <button type="submit" class="gumb">Posodobi izdelek</button><button type="submit" action ="#" class="gumb gumb-dodaj">prekliči</button>
     </form>
     <?php

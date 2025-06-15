@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,19 +12,19 @@
         <div class="domov">
             <a href="index.php">Dom</a>
         </div>
-<div class="menu">
-    <a href="#">Menu</a>
-    <a href="onas.php">O Nas</a>
-    <?php
-    if (isset($_SESSION['vloga']) && $_SESSION['vloga'] === 'admin') {
-        echo '<a href="admin.php">Admin pogled</a>';
+    <div class="menu">
+        <a href="#">Na vrh</a>
+        <a href="onas.php">O Nas</a>
+        <?php
+        if (isset($_SESSION['vloga']) && $_SESSION['vloga'] === 'admin') {
+            echo '<a href="admin.php">Admin pogled</a>';
+        }
+        ?>
+        <?php
+    if (isset($_SESSION['log'])) {
+        echo '<a href="moje_izposoje.php">Moje izposoje</a>';
     }
     ?>
-    <?php
-if (isset($_SESSION['log'])) {
-    echo '<a href="moje_izposoje.php">Moje izposoje</a>';
-}
-?>
 
 </div>
 
