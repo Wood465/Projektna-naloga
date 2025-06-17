@@ -2,11 +2,11 @@
 require_once 'povezava.php'; 
 
 if (isset($_POST['register'])) {
-    $ime =  $_POST['ime'];
-    $priimek = $_POST['priimek'];
-    $e_naslov = $_POST['e_naslov'];
+    $ime =  mysqli_real_escape_string($link,$_POST['ime']);
+    $priimek = mysqli_real_escape_string($link,$_POST['priimek']);
+    $e_naslov = mysqli_real_escape_string($link,$_POST['e_naslov']);
     $geslo = $_POST['geslo'];
-    $geslo2 = sha1($geslo); 
+    $geslo2 = password_hash($geslo, PASSWORD_DEFAULT); 
 
     
     $checkQuery = "SELECT * FROM uporabniki WHERE `e-naslov` = '$e_naslov';";

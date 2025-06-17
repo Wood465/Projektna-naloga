@@ -2,15 +2,15 @@
 require_once 'povezava.php';
 
 $id = intval($_POST['id_oprema']);
-$ime =  $_POST['ime'];
-$tip =  $_POST['tip'];
-$opis =  $_POST['opis'];
-$spec =  $_POST['specifikacija'];
+$ime =  mysqli_real_escape_string($link,$_POST['ime']);
+$tip =  mysqli_real_escape_string($link,$_POST['tip']);
+$opis =  mysqli_real_escape_string($link,$_POST['opis']);
+$spec =  mysqli_real_escape_string($link,$_POST['specifikacija']);
 $kolicina = intval($_POST['kolicina']);
 $cena = intval($_POST['cena']);
 
 
-$ime_slike = $_FILES['slika']['name'];
+$ime_slike = mysqli_real_escape_string($link,$_FILES['slika']['name']);
 $tmp_slike = $_FILES['slika']['tmp_name'];
 
 

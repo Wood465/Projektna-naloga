@@ -23,12 +23,14 @@ include_once 'menu.php';
         <option value="">Vsi tipi</option>
       
         <?php 
-        $query = "SELECT distinct o.tip from opreme o  ";
-        $tipi = mysqli_query($link, $query);
-        while ($row = mysqli_fetch_array($tipi)){ ?>
-                <option value="<?php echo ($row[0]) ?>"><?php echo ($row[0]) ?></option>
-       <?php }?>
+
+        $query = "SELECT DISTINCT o.tip FROM opreme o";
         
+        $tipi = mysqli_query($link, $query);
+        while ($row = mysqli_fetch_array($tipi)) { ?>
+            <option value="<?php echo ($row['tip']) ?>"><?php echo ($row['tip']) ?></option>
+        <?php } ?>
+
 
     </select>
     <input type="submit" value="Filtriraj">
@@ -36,8 +38,8 @@ include_once 'menu.php';
 
 <?php
 
-$iskanje = isset($_GET['iskanje']) ? $_GET['iskanje'] : '';
-$tip = isset($_GET['tip']) ? $_GET['tip'] : '';
+$iskanje = isset($_GET['iskanje']) ? mysqli_real_escape_string($link,$_GET['iskanje']) : '';
+$tip = isset($_GET['tip']) ? mysqli_real_escape_string($link,$_GET['tip']) : '';
 
 $query = "SELECT o.id_oprema, o.ime AS oprema_ime, o.opis, o.specifikacija, sl.url, sl.ime AS slika_ime 
           FROM opreme o 
@@ -60,11 +62,11 @@ while ($row = mysqli_fetch_array($result)) {
     <div class="obrazec" >
     <h1><?php echo htmlspecialchars($row['oprema_ime']) ?></h1>
     <div class="izdelek">
-    <a href="oprema.php?id=<?php echo htmlspecialchars($row['id_oprema']) ?>">
-    <img src="slika.php?id=<?php echo htmlspecialchars($row['id_oprema']) ?>" alt="<?php echo htmlspecialchars($row['slika_ime'])  ?>">
+    <a href="oprema.php?id=<?php echo $row['id_oprema'] ?>">
+    <img src="slika.php?id=<?php echo $row['id_oprema'] ?>" alt="<?php echo htmlspecialchars($row['slika_ime'])  ?>">
     </a>
     </div>
-     <a class="gumb" href="oprema.php?id=<?php echo htmlspecialchars($row['id_oprema']) ?>">NAKUP</a>
+     <a class="gumb" href="oprema.php?id=<?php echo $row['id_oprema'] ?>">NAKUP</a>
    </div>
 <?php } 
 ?>

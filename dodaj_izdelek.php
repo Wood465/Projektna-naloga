@@ -6,14 +6,14 @@ if ($_SESSION['vloga'] !== 'admin') {
     die("Dostop zavrnjen.");
 }
 
-$ime = $_POST['ime'];
-$tip = $_POST['tip'];
-$opis = $_POST['opis'];
-$spec = $_POST['specifikacija'];
-$kolicina = $_POST['kolicina'];
-$cena = $_POST['cena'];
+$ime = mysqli_real_escape_string($link,$_POST['ime']);
+$tip = mysqli_real_escape_string($link,$_POST['tip']);
+$opis = mysqli_real_escape_string($link,$_POST['opis']);
+$spec = mysqli_real_escape_string($link,$_POST['specifikacija']);
+$kolicina = mysqli_real_escape_string($link,$_POST['kolicina']);
+$cena = mysqli_real_escape_string($link,$_POST['cena']);
 
-$ime_slike = $_FILES['slika']['name'];
+$ime_slike = mysqli_real_escape_string($link,$_FILES['slika']['name']);
 $tmp_slike = $_FILES['slika']['tmp_name'];
 $bin = addslashes(file_get_contents($tmp_slike));
 
